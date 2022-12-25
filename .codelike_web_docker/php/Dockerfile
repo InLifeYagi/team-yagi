@@ -15,6 +15,9 @@ RUN apt-get update && apt-get install -y \
    libkrb5-dev \
    libxml2-dev 
 
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
+
 RUN rm -r /var/lib/apt/lists/*
 
 RUN PHP_OPENSSL=yes docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
